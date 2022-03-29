@@ -31,6 +31,7 @@ int main(){
     Demo firstLocalObject("the 1. local object");
     {
         Demo secLocalObject("the static object");
+        static Demo staticObject("the static object");
         cout<<"\nLast statement within the inner block"<<endl;
     }
     cout<<"Last statement in main() ."<<endl;
