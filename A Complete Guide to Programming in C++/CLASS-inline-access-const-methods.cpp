@@ -17,11 +17,32 @@ class Account{
             state = a_state;
         }
         ~Account(){ } // Dummy destructor: implicit inline
-        void display();
+        const string& getName() const {    // Access methods
+            return name;
+        }
+        bool setName(const string& s){
+            if(s.size()<1)
+                return false;
+            name = s;
+            return true;
+        }
+        unsigned long getNr() const {
+            return nr;
+        }
+        void setNr(unsigned long n){
+            nr = n;
+        }
+        double getState() const {
+            return state;
+        }
+        void setState(double x){
+            state = x;
+        }
+        void display() const;
 };
 
 // display() outputs data of class Account
-inline void Account::display(){     // Explicit inline
+inline void Account::display() const {     // Explicit inline
     cout<<fixed<<setprecision(2)
         <<"-------------------------------------\n"
         <<"Account holder:      "<<name<<"\n"
@@ -33,6 +54,9 @@ inline void Account::display(){     // Explicit inline
 int main()
 {
     Account cr;
+    cr.display();
+    cout<<"cr's number:     "<<cr.getNr()<<endl;
+    cr.setState(123.4);
     cr.display();
     return 0;
 }
