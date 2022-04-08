@@ -1,0 +1,42 @@
+// p.447
+#include<iostream>
+#include<cstdlib>
+
+using namespace std;
+
+#define MAX 100
+
+class FloatArr{
+    private:
+        float v[MAX];
+    public: 
+        float& operator[](int i);
+        static int MaxIndex(){
+            return MAX-1;
+        }
+};
+
+float& FloatArr::operator[](int i){
+    if(i<0 || i>=MAX){
+        cerr<<"\nFloatArr: Outside of range!"<<endl;
+        exit(1);
+    }
+    return v[i];    // reference to i-th elem
+}
+
+int main()
+{
+    cout<<"\n An array with range checking! \n"<<endl;
+    
+    FloatArr random;
+    int i;
+    
+    for(int i=0; i<=FloatArr::MaxIndex(); ++i)
+        random[i] = (rand() - RAND_MAX/2) / 100.0F;
+    
+    cout<<"\nEnter indices between 0 and "<<FloatArr::MaxIndex()<<"!"
+        <<"\n (Quit by entering invalid input)"<<endl;
+    while(cout<<"\nIndex: " && cin>>i)
+        cout<<i<<". elem:   "<<random[i];
+    return 0;
+}
