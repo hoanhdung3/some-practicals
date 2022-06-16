@@ -28,3 +28,11 @@
 # gg = {1 : 'Ho', 2 : "Anh", 3 : 'Dung'}
 # for k, v in gg.items():
 #     print(k , v)
+
+# check all packages: pip list
+
+# virtual environments:
+# - virtualenv project
+# - active: source project/bin/activate
+# - save all pakages: pip freeze --local > requirements.txt
+# - install all packages in requirements: pip install -r requirements.txt
